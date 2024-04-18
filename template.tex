@@ -1,0 +1,160 @@
+\documentclass[titlepage,a4paper,12pt]{article}
+
+\usepackage{a4wide}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage{tabularx}
+\usepackage{tabto}
+\usepackage{pgfgantt}
+\usepackage{xcolor}
+\usepackage{wrapfig}
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{paralist}
+\usepackage{pageslts}
+\pagenumbering{arabic}
+\usetikzlibrary{shadows}
+\usepackage{scripture}
+\usepackage{times}
+\usepackage{polyglossia}
+\usepackage[autostyle=true]{csquotes}
+%\usepackage[backend=biber,citestyle=verbose-ibidem,style=apa,sorting=nty]{biblatex}
+\usepackage[notes, isbn=false]{biblatex-chicago}
+\renewcommand{\bibsetup}{\singlespacing}
+\renewcommand{\bibitemsep}{1\baselineskip}
+\renewcommand{\bibhang}{0.5in}
+\addbibresource{template.bib}
+\usepackage[toc,page]{appendix}
+\renewcommand{\appendixpagename}{Apéndices}
+\renewcommand{\appendixtocname}{Apéndices}
+\usepackage[hidelinks,colorlinks=false,linkcolor=black,urlcolor=black,bookmarksopen=true,linktoc=all]{hyperref}
+\usepackage{bookmark}
+\usepackage{todonotes}
+\linespread{2}
+\usepackage{iftex}
+\ifXeTeX
+\usepackage{fontspec}
+\else
+\usepackage{luatextra}
+\fi
+\defaultfontfeatures{Ligatures=TeX}
+\setmainlanguage{spanish}
+\setotherlanguages{greek, english}
+\SetLanguageKeys{spanish}{indentfirst=false}
+\setromanfont{Times New Roman}
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+\setmonofont[Color={0019D4}]{Courier New}
+\pagestyle{fancy} % Encabezado y pie de página
+\fancyhf{}
+\fancyhead[L]{Titulo}
+\fancyhead[R]{Materia}
+\fancyfoot[C]{\thepage\ de \pageref*{VeryLastPage}}
+%\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\baselinestretch}{1,5}
+\renewcommand{\footnotesize}{\fontsize{10pt}{12pt}\selectfont}
+\def\title{Titulo del trabajo}
+\def\author{Nombre del autor}
+\def\instructor{Nombre del instructor}
+\def\fechadeentrega{Fecha de entrega}
+\def\nombremateria{Nombre de Materia}
+\def\codigomateria{Codigo de materia}
+\begin{document}
+\begin{titlepage} % Suppresses displaying the page number on the title page and the subsequent page counts as page 1
+	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for horizontal lines, change thickness here
+	
+	\center % Centre everything on the page
+	
+	%------------------------------------------------
+	%	Logo
+	%------------------------------------------------
+	\includegraphics[width=6cm]{./FTIBA-logo.png}\\
+	
+	%------------------------------------------------
+	%	Title
+	%------------------------------------------------
+	
+	\HRule\\[0.4cm]
+	
+	{\huge\bfseries \title}\\[0.4cm] % Title of your document
+	
+	\HRule\\[1.5cm]
+	%------------------------------------------------
+	%	Author(s)
+	%------------------------------------------------
+	
+	%\begin{minipage}{0.4\textwidth}
+		%\begin{flushleft}
+			%\large
+			%\textit{Author}\\
+			%\textsc{Se Hoon Park} % Your name
+		%\end{flushleft}
+	%\end{minipage}
+
+	
+	% If you don't want a supervisor, uncomment the two lines below and comment the code above
+	{\large
+	\textit{Autor}}\\
+	\Large
+	\textsc{\author} % Your name
+	\vfill
+	%------------------------------------------------
+	%	Headings
+	%------------------------------------------------
+	\textsc{\Large \codigomateria}\\[0.5cm] % Major heading such as course name
+	
+	\textsc{\large nombremateria}\\[0.5cm] % Minor heading such as course title
+	\vfill
+	
+	
+	\large
+	\textit{Insturctor}\\
+	\textsc{\instructor} % Supervisor's name
+	%------------------------------------------------
+	%	Date
+	%------------------------------------------------
+	
+	\vfill\vfill\vfill % Position the date 3/4 down the remaining page
+	
+	{\large \fechadeentrega} % Date, change the \today to a set date if you want to be precise
+	
+	
+	%\vfill\vfill
+	%\includegraphics[width=0.2\textwidth]{placeholder.jpg}\\[1cm] % Include a department/university logo - this will require the graphicx package
+	 
+	%----------------------------------------------------------------------------------------
+	
+	\vfill % Push the date up 1/4 of the remaining page
+	
+\end{titlepage}
+\thispagestyle{empty}
+\setcounter{page}{0}
+\tableofcontents
+\clearpage
+\setlength{\parskip}{2mm}
+\setlength{\headheight}{14.49998pt}
+
+\section{Introducción}
+\section{Primera sección}
+\subsection{Primera subsección}
+Ejemplo de la Escritura usando \emph{scripture} package. 
+\textscripture[Santiago 1:1][verse/hide]{Santiago, siervo de Dios y del Señor \textbf{Jesucristo}: A las doce tribus que están en la dispersión: Saludos.}\footnote{Todas las referencias bíblicas son de Nueva Biblia de las Américas(NBLA)}
+\subsection{Segunda subsección}
+``\ldots{} se trata principalmente de asuntos morales: un montón de cosas por hacer y no hacer.'' \footcite{librodesantiagobykrugger}
+
+\subsection{Tercera subsección}
+Esto es un ejemplo de nota al pie\footnote{Estos versículos se podrán ver en apéndice \ref{versiculoscitados}}
+\section{Segunda sección}
+\section{Conclusión}
+
+\clearpage
+\printbibliography[heading=bibintoc, title={Trabajos Citados}]
+\appendixpage
+\begin{appendix}
+\end{appendix}
+\end{document}
