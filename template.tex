@@ -23,8 +23,7 @@
 \usepackage{times}
 \usepackage{polyglossia}
 \usepackage[autostyle=true]{csquotes}
-%\usepackage[backend=biber,citestyle=verbose-ibidem,style=apa,sorting=nty]{biblatex}
-\usepackage[notes, isbn=false]{biblatex-chicago}
+\usepackage[notes,backend=biber,isbn=false,ibidtracker=constrict,idemtracker=constrict,useibid=true]{biblatex-chicago}
 \renewcommand{\bibsetup}{\singlespacing}
 \renewcommand{\bibitemsep}{1\baselineskip}
 \renewcommand{\bibhang}{0.5in}
@@ -88,20 +87,20 @@
 	%	Author(s)
 	%------------------------------------------------
 	
-	%\begin{minipage}{0.4\textwidth}
-		%\begin{flushleft}
-			%\large
-			%\textit{Author}\\
-			%\textsc{Se Hoon Park} % Your name
-		%\end{flushleft}
-	%\end{minipage}
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushleft}
+			\large
+			\textit{Author}\\
+			\textsc{Se Hoon Park} % Your name
+		\end{flushleft}
+	\end{minipage}
 
 	
 	% If you don't want a supervisor, uncomment the two lines below and comment the code above
-	{\large
-	\textit{Autor}}\\
-	\Large
-	\textsc{\author} % Your name
+	%{\large
+	%\textit{Autor}}\\
+	%\Large
+	%\textsc{\author} % Your name
 	\vfill
 	%------------------------------------------------
 	%	Headings
@@ -141,15 +140,22 @@
 
 \section{Introducción}
 \section{Primera sección}
+Ejemplo de \emph{scriture}.
+\begin{scripture}[Juan 1:1][version=LBLA]
+	En el principio ya existía el Verbo, y el Verbo estaba con Dios, y el Verbo era Dios.
+\end{scripture}
 \subsection{Primera subsección}
 Ejemplo de la Escritura usando \emph{scripture} package. 
 \textscripture[Santiago 1:1][verse/hide]{Santiago, siervo de Dios y del Señor \textbf{Jesucristo}: A las doce tribus que están en la dispersión: Saludos.}\footnote{Todas las referencias bíblicas son de Nueva Biblia de las Américas(NBLA)}
 \subsection{Segunda subsección}
-``\ldots{} se trata principalmente de asuntos morales: un montón de cosas por hacer y no hacer.'' \footcite{librodesantiagobykrugger}
+``\ldots{} se trata principalmente de asuntos morales: un montón de cosas por hacer y no hacer.'' \autocite{librodesantiagobykrugger}
 
 \subsection{Tercera subsección}
-Esto es un ejemplo de nota al pie\footnote{Estos versículos se podrán ver en apéndice \ref{versiculoscitados}}
+Esto es un ejemplo de nota al pie\footnote{Estos versículos se podrán ver en apéndice}
 \section{Segunda sección}
+\begin{quotation}
+	Ejemplo de quotes
+\end{quotation}
 \section{Conclusión}
 
 \clearpage
