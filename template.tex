@@ -31,6 +31,10 @@
 \usepackage[toc,page]{appendix}
 \renewcommand{\appendixpagename}{Apéndices}
 \renewcommand{\appendixtocname}{Apéndices}
+\newcommand{\stoptocwriting}{%
+  \addtocontents{toc}{\protect\setcounter{tocdepth}{-5}}}
+\newcommand{\resumetocwriting}{%
+  \addtocontents{toc}{\protect\setcounter{tocdepth}{\arabic{tocdepth}}}}
 \usepackage[hidelinks,colorlinks=false,linkcolor=black,urlcolor=black,bookmarksopen=true,linktoc=all]{hyperref}
 \usepackage{bookmark}
 \usepackage{todonotes}
