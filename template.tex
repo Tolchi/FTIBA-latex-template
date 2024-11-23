@@ -1,6 +1,5 @@
 \documentclass[titlepage,a4paper,12pt]{article}
 
-\usepackage{a4wide}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{tikz}
@@ -21,6 +20,10 @@
 \usetikzlibrary{shadows}
 \usepackage{scripture}
 \usepackage{times}
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalfont\sffamily\large\bfseries}
+  {\thesection}{1em}{}
 \usepackage{polyglossia}
 \usepackage[autostyle=true]{csquotes}
 \usepackage[notes,backend=biber,isbn=false,ibidtracker=constrict,idemtracker=constrict,useibid=true]{biblatex-chicago}
