@@ -1,5 +1,6 @@
 \documentclass[titlepage,a4paper,12pt]{article}
 
+\usepackage[margin=1in]{geometry}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{tikz}
@@ -50,11 +51,14 @@
 \fi
 \defaultfontfeatures{Ligatures=TeX}
 \setmainlanguage{spanish}
-\setotherlanguages{greek, english}
+\setotherlanguage[variant=ancient]{greek}
+\setotherlanguage{hebrew}
+\setotherlanguage{english}
 \SetLanguageKeys{spanish}{indentfirst=false}
 \newfontfamily\greekfont[Script=Greek]{SBL_grk.ttf}
-\setromanfont{Times New Roman}
-\setmainfont{Times New Roman}
+\newfontfamily\hebrewfont[Script=Hebrew]{SBL_Hbrw.ttf}
+\setromanfont{Tex Gyre Termes}
+\setmainfont{Tex Gyre Termes}
 \setsansfont{Arial}
 \setmonofont[Color={0019D4}]{Courier New}
 \pagestyle{fancy} % Encabezado y pie de página
@@ -158,7 +162,8 @@ Ejemplo de la Escritura usando \emph{scripture} package.
 \subsection{Segunda subsección}
 ``\ldots{} se trata principalmente de asuntos morales: un montón de cosas por hacer y no hacer.'' \autocite{librodesantiagobykrugger}
 
-Ejemplo de griego: \begin{greek}[variant=ancient]Χριστὀς\end{greek}.
+Ejemplo de griego: \begin{greek}Χριστὀς\end{greek}.\\
+Ejemplo de hebrew: \begin{hebrew}אֱלֹהִ֑ים\end{hebrew}.
 \subsection{Tercera subsección}
 Esto es un ejemplo de nota al pie\footnote{Estos versículos se podrán ver en apéndice}
 \section{Segunda sección}

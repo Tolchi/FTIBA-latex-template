@@ -1,4 +1,5 @@
 #!/bin/sh
-lualatex template.tex
-biber template && lualatex template.tex && lualatex template.tex && open template.pdf
+#rm -fr `biber --cache`
+latexmk --view=pdf template.tex -pdflua
 latexmk -c
+open template.pdf
