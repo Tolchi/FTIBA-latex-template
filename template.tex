@@ -55,12 +55,12 @@
 \setotherlanguage{hebrew}
 \setotherlanguage{english}
 \SetLanguageKeys{spanish}{indentfirst=false}
-\newfontfamily\greekfont[Script=Greek]{SBL_grk.ttf}
-\newfontfamily\hebrewfont[Script=Hebrew]{SBL_Hbrw.ttf}
-\setromanfont{Tex Gyre Termes}
-\setmainfont{Tex Gyre Termes}
-\setsansfont{Arial}
-\setmonofont[Color={0019D4}]{Courier New}
+\newfontfamily\greekfont[mode=harf,Script=Greek]{SBL_grk.ttf}
+\newfontfamily\hebrewfont[mode=harf,Script=Hebrew]{SBL_Hbrw.ttf}
+\setromanfont[mode=harf,script=latin]{Tex Gyre Termes}
+\setmainfont[mode=harf,script=latin]{Tex Gyre Termes}
+\setsansfont[mode=harf,script=latin]{Arial}
+\setmonofont[mode=harf,Color={0019D4},script=latin]{Courier New}
 \pagestyle{fancy} % Encabezado y pie de página
 \fancyhf{}
 \fancyhead[L]{\textsf{\title}}
@@ -171,6 +171,7 @@ Esto es un ejemplo de nota al pie\footnote{Estos versículos se podrán ver en a
 	Ejemplo de quotes
 \end{quotation}
 \section{Conclusión}
+Este documento fue hecho con \LuaTeX.
 
 \clearpage
 \printbibliography[heading=bibintoc, title={Trabajos Citados}]
