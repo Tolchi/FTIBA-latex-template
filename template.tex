@@ -9,6 +9,7 @@
 \usepackage{tabularx}
 \usepackage{tabto}
 \usepackage{pgfgantt}
+\usepackage{enumitem}
 \usepackage{xcolor}
 \usepackage{wrapfig}
 \usepackage[T1]{fontenc}
@@ -16,11 +17,15 @@
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{paralist}
+\usepackage{cleveref}
+\usepackage{widows-and-orphans}
 \usepackage{pageslts}
-\pagenumbering{arabic}
 \usetikzlibrary{shadows}
 \usepackage{scripture}
 \usepackage{times}
+\usepackage{mathptmx}
+\usepackage[scaled=.90]{helvet}
+\usepackage{courier}
 \usepackage{titlesec}
 \titleformat{\section}
   {\normalfont\sffamily\large\bfseries}
@@ -61,11 +66,11 @@
 \setmainfont[mode=harf,script=latin]{Tex Gyre Termes}
 \setsansfont[mode=harf,script=latin]{Arial}
 \setmonofont[mode=harf,Color={0019D4},script=latin]{Courier New}
-\pagestyle{fancy} % Encabezado y pie de página
+\pagestyle{fancy}% Encabezado y pie de página
 \fancyhf{}
 \fancyhead[L]{\textsf{\title}}
 \fancyhead[R]{\textsf{\nombremateria}}
-\fancyfoot[C]{\textsf{\thepage\ de \pageref*{VeryLastPage}}}
+\fancyfoot[C]{\textsf{\thepage\ de~\pageref*{VeryLastPage}}}
 %\renewcommand{\footrulewidth}{0.4pt}
 \renewcommand{\baselinestretch}{1,5}
 \renewcommand{\footnotesize}{\fontsize{10pt}{12pt}\selectfont}
@@ -76,10 +81,11 @@
 \def\nombremateria{Nombre de Materia}
 \def\codigomateria{Codigo de materia}
 \begin{document}
+\pagenumbering{arabic}
 \begin{titlepage} % Suppresses displaying the page number on the title page and the subsequent page counts as page 1
 	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for horizontal lines, change thickness here
 	
-	\center % Centre everything on the page
+	\center% Centre everything on the page
 	
 	%------------------------------------------------
 	%	Logo
@@ -149,7 +155,6 @@
 \clearpage
 \setlength{\parskip}{2mm}
 \setlength{\headheight}{14.49998pt}
-
 \section{Introducción}
 \section{Primera sección}
 Ejemplo de \emph{scriture}.
@@ -157,10 +162,10 @@ Ejemplo de \emph{scriture}.
 	En el principio ya existía el Verbo, y el Verbo estaba con Dios, y el Verbo era Dios.
 \end{scripture}
 \subsection{Primera subsección}
-Ejemplo de la Escritura usando \emph{scripture} package. 
-\textscripture[Santiago 1:1][verse/hide]{Santiago, siervo de Dios y del Señor \textbf{Jesucristo}: A las doce tribus que están en la dispersión: Saludos.}\footnote{Todas las referencias bíblicas son de Nueva Biblia de las Américas(NBLA)}
+Ejemplo de la Escritura usando \emph{scripture} package.
+\textscripture[Santiago 1:1][verse/hide]{Santiago, siervo de Dios y del Señor \textbf{Jesucristo}: A las doce tribus que están en la dispersión: Saludos.}\footnote{Todas las referencias bíblicas son de Nueva Biblia de las Américas (NBLA)}
 \subsection{Segunda subsección}
-``\ldots{} se trata principalmente de asuntos morales: un montón de cosas por hacer y no hacer.'' \autocite{librodesantiagobykrugger}
+\enqoute{\ldots{} se trata principalmente de asuntos morales: un montón de cosas por hacer y no hacer.}\autocite{librodesantiagobykrugger}
 
 Ejemplo de griego: \begin{greek}Χριστὀς\end{greek}.\\
 Ejemplo de hebrew: \begin{hebrew}אֱלֹהִ֑ים\end{hebrew}.
