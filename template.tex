@@ -1,3 +1,7 @@
+% arara: lualatex: { synctex: on }
+% arara: biber
+% arara: lualatex: { synctex: on }
+% arara: lualatex: { synctex: on }
 \documentclass[titlepage,a4paper,12pt]{article}
 
 \usepackage[margin=1in]{geometry}
@@ -17,7 +21,6 @@
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{paralist}
-\usepackage{cleveref}
 \usepackage{widows-and-orphans}
 \usepackage{pageslts}
 \usetikzlibrary{shadows}
@@ -31,6 +34,13 @@
   {\normalfont\sffamily\large\bfseries}
   {\thesection}{1em}{}
 \usepackage{polyglossia}
+\setmainlanguage{spanish}
+\setotherlanguage[variant=ancient]{greek}
+\setotherlanguage{hebrew}
+\setotherlanguage{english}
+\SetLanguageKeys{spanish}{indentfirst=false}
+\newfontfamily\greekfont[mode=harf,Script=Greek]{SBL_grk.ttf}
+\newfontfamily\hebrewfont[mode=harf,Script=Hebrew]{SBL_Hbrw.ttf}
 \usepackage[autostyle=true]{csquotes}
 \usepackage[notes,backend=biber,isbn=false,ibidtracker=constrict,idemtracker=constrict,useibid=true]{biblatex-chicago}
 \renewcommand{\bibsetup}{\singlespacing}
@@ -45,6 +55,7 @@
 \newcommand{\resumetocwriting}{%
   \addtocontents{toc}{\protect\setcounter{tocdepth}{\arabic{tocdepth}}}}
 \usepackage[hidelinks,colorlinks=false,linkcolor=black,urlcolor=black,bookmarksopen=true,linktoc=all]{hyperref}
+\usepackage{cleveref}
 \usepackage{bookmark}
 \usepackage{todonotes}
 \linespread{2}
@@ -55,13 +66,6 @@
 \usepackage{luatextra}
 \fi
 \defaultfontfeatures{Ligatures=TeX}
-\setmainlanguage{spanish}
-\setotherlanguage[variant=ancient]{greek}
-\setotherlanguage{hebrew}
-\setotherlanguage{english}
-\SetLanguageKeys{spanish}{indentfirst=false}
-\newfontfamily\greekfont[mode=harf,Script=Greek]{SBL_grk.ttf}
-\newfontfamily\hebrewfont[mode=harf,Script=Hebrew]{SBL_Hbrw.ttf}
 \setromanfont[mode=harf,script=latin]{Tex Gyre Termes}
 \setmainfont[mode=harf,script=latin]{Tex Gyre Termes}
 \setsansfont[mode=harf,script=latin]{Arial}
@@ -165,10 +169,10 @@ Ejemplo de \emph{scriture}.
 Ejemplo de la Escritura usando \emph{scripture} package.
 \textscripture[Santiago 1:1][verse/hide]{Santiago, siervo de Dios y del Señor \textbf{Jesucristo}: A las doce tribus que están en la dispersión: Saludos.}\footnote{Todas las referencias bíblicas son de Nueva Biblia de las Américas (NBLA)}
 \subsection{Segunda subsección}
-\enqoute{\ldots{} se trata principalmente de asuntos morales: un montón de cosas por hacer y no hacer.}\autocite{librodesantiagobykrugger}
+\enquote{\ldots{} se trata principalmente de asuntos morales: un montón de cosas por hacer y no hacer.}\autocite{librodesantiagobykrugger}
 
-Ejemplo de griego: \begin{greek}Χριστὀς\end{greek}.\\
-Ejemplo de hebrew: \begin{hebrew}אֱלֹהִ֑ים\end{hebrew}.
+Ejemplo de griego: \begin{greek}Χριστὀς\end{greek}\\
+Ejemplo de hebrew: \begin{hebrew}אֱלֹהִ֑ים\end{hebrew}
 \subsection{Tercera subsección}
 Esto es un ejemplo de nota al pie\footnote{Estos versículos se podrán ver en apéndice}
 \section{Segunda sección}
