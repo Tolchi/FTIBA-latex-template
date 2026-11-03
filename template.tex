@@ -5,6 +5,7 @@
 \documentclass[titlepage,a4paper,12pt]{article}
 
 \usepackage[margin=1in]{geometry}
+\usepackage{import}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{tikz}
@@ -57,7 +58,6 @@
 \usepackage[hidelinks,colorlinks=false,linkcolor=black,urlcolor=black,bookmarksopen=true,linktoc=all]{hyperref}
 \usepackage{cleveref}
 \usepackage{bookmark}
-\usepackage{todonotes}
 \linespread{2}
 \usepackage{iftex}
 \ifXeTeX
@@ -86,73 +86,7 @@
 \def\codigomateria{Codigo de materia}
 \begin{document}
 \pagenumbering{arabic}
-\begin{titlepage} % Suppresses displaying the page number on the title page and the subsequent page counts as page 1
-	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for horizontal lines, change thickness here
-	
-	\center% Centre everything on the page
-	
-	%------------------------------------------------
-	%	Logo
-	%------------------------------------------------
-	\includegraphics[width=6cm]{./FTIBA-logo.png}\\
-	
-	%------------------------------------------------
-	%	Title
-	%------------------------------------------------
-	
-	\HRule\\[0.4cm]
-	
-	{\huge\bfseries \title}\\[0.4cm] % Title of your document
-	
-	\HRule\\[1.5cm]
-	%------------------------------------------------
-	%	Author(s)
-	%------------------------------------------------
-	
-	\begin{minipage}{0.4\textwidth}
-		\begin{flushleft}
-			\large
-			\textit{Author}\\
-			\textsc{\author} % Your name
-		\end{flushleft}
-	\end{minipage}
-
-	
-	% If you don't want a supervisor, uncomment the two lines below and comment the code above
-	%{\large
-	%\textit{Autor}}\\
-	%\Large
-	%\textsc{\author} % Your name
-	\vfill
-	%------------------------------------------------
-	%	Headings
-	%------------------------------------------------
-	\textsc{\Large \codigomateria}\\[0.5cm] % Major heading such as course name
-	
-	\textsc{\large \nombremateria}\\[0.5cm] % Minor heading such as course title
-	\vfill
-	
-	
-	\large
-	\textit{Instructor}\\
-	\textsc{\instructor} % Supervisor's name
-	%------------------------------------------------
-	%	Date
-	%------------------------------------------------
-	
-	\vfill\vfill\vfill % Position the date 3/4 down the remaining page
-	
-	{\large \fechadeentrega} % Date, change the \today to a set date if you want to be precise
-	
-	
-	%\vfill\vfill
-	%\includegraphics[width=0.2\textwidth]{placeholder.jpg}\\[1cm] % Include a department/university logo - this will require the graphicx package
-	 
-	%----------------------------------------------------------------------------------------
-	
-	\vfill % Push the date up 1/4 of the remaining page
-	
-\end{titlepage}
+\input{title.tex}
 \thispagestyle{empty}
 \setcounter{page}{0}
 \tableofcontents
@@ -160,28 +94,9 @@
 \setlength{\parskip}{2mm}
 \setlength{\headheight}{14.49998pt}
 \section{Introducción}
-\section{Primera sección}
-Ejemplo de \emph{scriture}.
-\begin{scripture}[Juan 1:1][version=LBLA]
-	En el principio ya existía el Verbo, y el Verbo estaba con Dios, y el Verbo era Dios.
-\end{scripture}
-\subsection{Primera subsección}
-Ejemplo de la Escritura usando \emph{scripture} package.
-\textscripture[Santiago 1:1][verse/hide]{Santiago, siervo de Dios y del Señor \textbf{Jesucristo}: A las doce tribus que están en la dispersión: Saludos.}\footnote{Todas las referencias bíblicas son de Nueva Biblia de las Américas (NBLA)}
-\subsection{Segunda subsección}
-\enquote{\ldots{} se trata principalmente de asuntos morales: un montón de cosas por hacer y no hacer.}\autocite{librodesantiagobykrugger}
-
-Ejemplo de griego: \begin{greek}Χριστὀς\end{greek}\\
-Ejemplo de hebrew: \begin{hebrew}אֱלֹהִ֑ים\end{hebrew}
-\subsection{Tercera subsección}
-Esto es un ejemplo de nota al pie\footnote{Estos versículos se podrán ver en apéndice}
-\section{Segunda sección}
-\begin{quotation}
-	Ejemplo de quotes
-\end{quotation}
-\section{Conclusión}
-Este documento fue hecho con \LuaTeX.
-
+\import{./}{primera-seccion.tex}
+\import{./}{segunda-seccion.tex}
+\import{./}{conclusion.tex}
 \clearpage
 \printbibliography[heading=bibintoc, title={Trabajos Citados}]
 \appendixpage
