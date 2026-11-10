@@ -4,99 +4,136 @@
 % arara: lualatex: { synctex: on }
 \documentclass[titlepage,a4paper,12pt]{article}
 
+% ==============================================================================
+% 1. Detección de motor TeX y soporte de fuentes nativas (LuaLaTeX / XeTeX)
+% ==============================================================================
+\usepackage{iftex}
+\usepackage{fontspec}
+\usepackage{metalogo}       % Proporciona los logos de \LuaTeX, \XeTeX, etc.
+
+% Configuración de fuentes del documento
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont[mode=harf,script=latin]{Tex Gyre Termes}
+\setsansfont[mode=harf,script=latin]{Arial}
+\setmonofont[mode=harf,Color={0019D4},script=latin]{Courier New}
+
+% ==============================================================================
+% 2. Geometría y estructura de página
+% ==============================================================================
 \usepackage[margin=1in]{geometry}
-\usepackage{import}
 \usepackage{fancyhdr}
-\usepackage{graphicx}
-\usepackage{tikz}
-\usepackage{float}
 \usepackage{setspace}
+\setstretch{1.5}            % Interlineado 1.5 limpio mediante setspace
+
+% ==============================================================================
+% 3. Gráficos, colores y tablas
+% ==============================================================================
+\usepackage{xcolor}         % Siempre antes de tikz para evitar option clashes
+\usepackage{graphicx}       % Carga única (se eliminó el duplicado anterior)
+\usepackage{tikz}
+\usetikzlibrary{shadows}
+\usepackage{pgfgantt}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{subcaption}
 \usepackage{tabularx}
 \usepackage{tabto}
-\usepackage{pgfgantt}
-\usepackage{xcolor}
-\usepackage{wrapfig}
-\usepackage[T1]{fontenc}
-\usepackage{mathpazo}
-\usepackage{graphicx}
-\usepackage{subcaption}
+
+% ==============================================================================
+% 4. Utilidades generales, listas y formato de títulos
+% ==============================================================================
+\usepackage{import}
 \usepackage{paralist}
 \usepackage{widows-and-orphans}
-\usepackage{pageslts}
-\usetikzlibrary{shadows}
-\usepackage{scripture}
-\usepackage{times}
-\usepackage{mathptmx}
-\usepackage[scaled=.90]{helvet}
-\usepackage{courier}
+\usepackage{etoolbox}
+\usepackage{keyval}
+\usepackage{ifthen}
 \usepackage{titlesec}
 \titleformat{\section}
   {\normalfont\sffamily\large\bfseries}
   {\thesection}{1em}{}
+
+% Paquete para citas de textos bíblicos
+\usepackage{scripture}
+
+% ==============================================================================
+% 5. Idiomas, tipografía y comillas
+% ==============================================================================
 \usepackage{polyglossia}
 \setmainlanguage{spanish}
 \setotherlanguage[variant=ancient]{greek}
 \setotherlanguage{hebrew}
 \setotherlanguage{english}
 \SetLanguageKeys{spanish}{indentfirst=false}
+
+% Fuentes para idiomas bíblicos/antiguos
 \newfontfamily\greekfont[mode=harf,Script=Greek]{SBL_grk.ttf}
 \newfontfamily\hebrewfont[mode=harf,Script=Hebrew]{SBL_Hbrw.ttf}
+
+% Tipografía mejorada y comillas contextuales (csquotes debe ir DESPUÉS de polyglossia)
+\usepackage{microtype}
 \usepackage[autostyle=true]{csquotes}
-\usepackage{etex}
-\usepackage{etoolbox}
-\usepackage{keyval}
-\usepackage{ifthen}
-\usepackage{url}
+
+% ==============================================================================
+% 6. Bibliografía y apéndices (deben ir DESPUÉS de csquotes y ANTES de hyperref)
+% ==============================================================================
 \usepackage[notes,backend=biber,isbn=false,ibidtracker=constrict,idemtracker=constrict,useibid=true]{biblatex-chicago}
 \renewcommand{\bibsetup}{\singlespacing}
 \renewcommand{\bibitemsep}{1\baselineskip}
 \renewcommand{\bibhang}{0.5in}
 \addbibresource{template.bib}
+
 \usepackage[toc,page]{appendix}
 \renewcommand{\appendixpagename}{Apéndices}
 \renewcommand{\appendixtocname}{Apéndices}
+
+% Macros auxiliares para la tabla de contenidos
 \newcommand{\stoptocwriting}{%
   \addtocontents{toc}{\protect\setcounter{tocdepth}{-5}}}
 \newcommand{\resumetocwriting}{%
   \addtocontents{toc}{\protect\setcounter{tocdepth}{\arabic{tocdepth}}}}
+
+% ==============================================================================
+% 7. Hipervínculos, referencias y paquetes dependientes de hyperref
+% (hyperref debe ser de los últimos, seguido estrictamente por bookmark, cleveref y pageslts)
+% ==============================================================================
+\usepackage{url}
 \usepackage[hidelinks,colorlinks=false,linkcolor=black,urlcolor=black,bookmarksopen=true,linktoc=all]{hyperref}
-\usepackage{cleveref}
 \usepackage{bookmark}
-\linespread{2}
-\usepackage{iftex}
-\ifXeTeX
-\usepackage{fontspec}
-\else
-\usepackage{luatextra}
-\fi
-\defaultfontfeatures{Ligatures=TeX}
-\setromanfont[mode=harf,script=latin]{Tex Gyre Termes}
-\setmainfont[mode=harf,script=latin]{Tex Gyre Termes}
-\setsansfont[mode=harf,script=latin]{Arial}
-\setmonofont[mode=harf,Color={0019D4},script=latin]{Courier New}
+\usepackage{cleveref}
+\usepackage{pageslts}       % Requiere cargarse después de hyperref para el conteo de páginas
+
+% ==============================================================================
+% 8. Configuración de encabezados, pie de página y metadatos
+% ==============================================================================
 \pagestyle{fancy}% Encabezado y pie de página
 \fancyhf{}
 \fancyhead[L]{\textsf{\title}}
 \fancyhead[R]{\textsf{\nombremateria}}
 \fancyfoot[C]{\textsf{\thepage\ de~\pageref*{VeryLastPage}}}
-%\renewcommand{\footrulewidth}{0.4pt}
-\renewcommand{\baselinestretch}{1,5}
+\setlength{\headheight}{14.5pt}
+
 \renewcommand{\footnotesize}{\fontsize{10pt}{12pt}\selectfont}
+
 \def\title{Titulo del trabajo}
 \def\author{Nombre del autor}
 \def\instructor{Nombre del instructor}
 \def\fechadeentrega{Fecha de entrega}
 \def\nombremateria{Nombre de Materia}
 \def\codigomateria{Codigo de materia}
+
+% ==============================================================================
+% Cuerpo del Documento
+% ==============================================================================
 \begin{document}
-\pagenumbering{arabic}
+\pagenumbering{roman}
 \input{title.tex}
 \thispagestyle{empty}
-\setcounter{page}{0}
 \tableofcontents
 \clearpage
+
+\pagenumbering{arabic}
 \setlength{\parskip}{2mm}
-\setlength{\headheight}{14.49998pt}
 \section{Introducción}
 \import{./}{primera-seccion.tex}
 \import{./}{segunda-seccion.tex}
